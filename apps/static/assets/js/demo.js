@@ -17,8 +17,8 @@ Circles.create({
 
 //Notify
 $.notify({
-	icon: 'flaticon-alarm-1',
-	title: 'Anda Dashboard',
+	icon: 'icon-heart',
+	title: 'Bem-vindo',
 	message: 'Anda Dashboard',
 }, {
 	type: 'info',
@@ -26,7 +26,7 @@ $.notify({
 		from: "bottom",
 		align: "right"
 	},
-	time: 1000,
+	time: 200,
 });
 
 // JQVmap

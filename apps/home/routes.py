@@ -8,7 +8,9 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from apps.home import dataDf
 from apps.home.plots.daily_trips import *
+from apps.home.plots.operator import *
 from apps.home.maps.testmap import *
+from apps.home.stats.home_stats import *
 
 
 # TESTING STUFF
@@ -23,8 +25,13 @@ def create_figure():
 
 @blueprint.route('/')
 def index():
-    test = 1
-    return render_template('home/index.html', segment='index', plot=daily_trips(), test=test, data_df=dataDf, map=saveFoliumMapTest())
+    return render_template('home/index.html', segment='index', dailyTrips=daily_trips(), profiles=profiles(), data_df=dataDf, totalTrips=total_trips(),
+                           totalUsers=total_users(), operatorPerc=operators_perc(), totalHW=totalByHourAndWeekday(), test=profilesByMonth())
+
+
+@blueprint.route('/frame')  # the route can be whatever you want
+def show_frame():
+    return render_template('home/first_map.html')
 
 
 @blueprint.route('/geo')
